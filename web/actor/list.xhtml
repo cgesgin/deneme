@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+
+    <ui:define name="content">
+        <h:form>
+            <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px;margin-bottom: 20px">
+                <h:commandButton styleClass="btn btn-outline-info" action="/actor/create" value="Create new Actor"/>
+            </div>            
+            <h:dataTable styleClass="table table-dark table-hover" value="#{actorBean.read}" var="c">
+                <h:column><f:facet name="header">ID</f:facet>#{c.actorId}</h:column>
+                <h:column><f:facet name="header">FIRST NAME</f:facet>#{c.firstName}</h:column>
+                <h:column><f:facet name="header">LAST NAME</f:facet>#{c.lastName}</h:column>
+                <h:column><f:facet name="header">LAST UPDATE</f:facet>#{c.lastUpdate}</h:column>
+                <h:column><f:facet name="header">ADMINISTRATION</f:facet>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <h:commandButton styleClass="btn btn-outline-success" action="#{actorBean.updateFrom(c)}" value="update"/>
+                        <h:commandButton styleClass="btn btn-outline-danger"  action="#{actorBean.delete(c)}" value="delete"/>
+                    </div>
+                </h:column>
+            </h:dataTable>            
+        </h:form>
+    </ui:define>
+</ui:composition>
+
