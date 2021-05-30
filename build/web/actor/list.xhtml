@@ -8,6 +8,17 @@
 
     <ui:define name="content">
         <h:form>
+            
+            <div class="badge bg-primary text-wrap" style="width: 6rem;">
+               #{actorBean.page} of #{actorBean.pageCount}
+            </div>
+            <div class="btn-group" role="group" style="margin-top: 20px;margin-bottom: 20px " >
+
+                <h:commandButton styleClass="btn btn-outline-primary" action="#{actorBean.previusPage()}" value="previus page"/>
+                <h:commandButton styleClass="btn btn-outline-primary" action="#{actorBean.nextPage()}" value="next page"/>
+            </div>
+        </h:form>
+        <h:form>
             <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px;margin-bottom: 20px">
                 <h:commandButton styleClass="btn btn-outline-info" action="/actor/create" value="Create new Actor"/>
             </div>            
