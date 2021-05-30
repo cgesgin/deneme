@@ -1,3 +1,3 @@
 # jsf_crud
 
-* Postgresql pagila[https://www.postgresqltutorial.com/postgresql-sample-database/] üzerindeki veritabanı kullanılarak jsf ile crud işlemleri yapılmıştır.
+* Postgresql'deki [pagila](https://www.postgresqltutorial.com/postgresql-sample-database/) veritabanı üzerinden jsf ile crud işlemleri gerçekleştirilmiştir.
