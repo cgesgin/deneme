@@ -1,26 +1,26 @@
- 
 package entity;
- 
+
 import java.util.Date;
 
 public class Film {
+
     private int filmId;
     private String title;
     private String description;
     private int releaseYear;
-    private int languageId;
+    private Language language;
     private int length;
     private Date lastUpdate;
 
     public Film() {
     }
 
-    public Film(int filmId, String title, String description, int releaseYear, int languageId, int length, Date lastUpdate) {
+    public Film(int filmId, String title, String description, int releaseYear, Language language, int length, Date lastUpdate) {
         this.filmId = filmId;
         this.title = title;
         this.description = description;
         this.releaseYear = releaseYear;
-        this.languageId = languageId;
+        this.language = language;
         this.length = length;
         this.lastUpdate = lastUpdate;
     }
@@ -57,12 +57,12 @@ public class Film {
         this.releaseYear = releaseYear;
     }
 
-    public int getLanguageId() {
-        return languageId;
+    public Language getLanguage() {
+        return language;
     }
 
-    public void setLanguageId(int languageId) {
-        this.languageId = languageId;
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 
     public int getLength() {
@@ -80,6 +80,5 @@ public class Film {
     public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
-    
-    
+
 }

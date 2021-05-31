@@ -28,7 +28,7 @@
                 <h:column><f:facet name="header">description</f:facet>#{c.description}</h:column>
                 <h:column><f:facet name="header">Release Year</f:facet>#{c.releaseYear}</h:column>
                 <h:column><f:facet name="header">Length</f:facet>#{c.length}</h:column>
-                <h:column><f:facet name="header">Language</f:facet>#{languageBean.getById(c.languageId).name}</h:column>
+                <h:column><f:facet name="header">Language</f:facet>#{c.language.name}</h:column>
                 <h:column><f:facet name="header">LAST UPDATE</f:facet>#{c.lastUpdate}</h:column>
                 <h:column><f:facet name="header">ADMINISTRATION</f:facet>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">

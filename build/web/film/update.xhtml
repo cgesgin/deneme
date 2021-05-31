@@ -18,9 +18,9 @@
                 <label class="form-label">Film Release Year</label><br/>
                 <h:inputText styleClass="form-control" value="#{filmBean.film.releaseYear}"/><br/>
                 <label class="form-label">Film Language id</label><br/>
-                 <h:selectOneMenu styleClass="form-select" value="#{filmBean.film.languageId}" >
-                     <f:selectItems  value="#{languageBean.read}" var="l" itemLabel="#{l.name}" itemValue="#{l.languageId}"/>
-                    </h:selectOneMenu>
+                <h:selectOneMenu styleClass="form-select" value="#{filmBean.film.language}" converter="lanConverter" >
+                    <f:selectItems  value="#{languageBean.read}" var="l" itemLabel="#{l.name}" itemValue="#{l}"/>
+                </h:selectOneMenu>
                 <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px">
                     <h:commandButton styleClass="btn btn-outline-info" action="#{filmBean.update()}" value="Update" />
                 </div>
