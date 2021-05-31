@@ -51,4 +51,17 @@ public class LanguageDAO extends DBConnecter {
         }
     }
 
+    public Language getById(int id) {
+        Language language = null;
+        try {
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select * from language where language_id="+id);
+            rs.next();
+            language = new Language(rs.getInt("language_id"), rs.getString("name"), rs.getDate("last_update"));
+        } catch (Exception ex) {
+            System.out.println("getById" + ex.getMessage());;
+        }
+        return language;
+    }
+
 }

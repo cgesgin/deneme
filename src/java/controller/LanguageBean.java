@@ -41,6 +41,10 @@ public class LanguageBean implements Serializable {
     public void delete(Language language) {
         this.getLanguageDAO().delete(language);
     }
+    
+    public Language getById(int id){
+        return this.getLanguageDAO().getById(id);
+    }
 
     public LanguageDAO getLanguageDAO() {
         if (this.languageDAO == null) {

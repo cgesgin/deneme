@@ -3,7 +3,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="/template/admin.xhtml">
+                template="/template/admin.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
         <h:form>
@@ -17,8 +18,10 @@
                 <label class="form-label">Film Release Year</label><br/>
                 <h:inputText styleClass="form-control" value="#{filmBean.film.releaseYear}"/><br/>
                 <label class="form-label">Film Language id</label><br/>
-                <h:inputText styleClass="form-control" value="#{filmBean.film.languageId}"/><br/>
-                <div class="d-grid gap-2 col-6 mx-auto">
+                 <h:selectOneMenu styleClass="form-select" value="#{filmBean.film.languageId}" >
+                     <f:selectItems  value="#{languageBean.read}" var="l" itemLabel="#{l.name}" itemValue="#{l.languageId}"/>
+                    </h:selectOneMenu>
+                <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px">
                     <h:commandButton styleClass="btn btn-outline-info" action="#{filmBean.update()}" value="Update" />
                 </div>
             </div>
