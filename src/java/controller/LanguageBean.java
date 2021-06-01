@@ -38,11 +38,18 @@ public class LanguageBean implements Serializable {
         return "/language/list";
     }
 
-    public void delete(Language language) {
-        this.getLanguageDAO().delete(language);
+    public String deleteFrom(Language language) {
+        this.language = language;
+        return "/language/delete";
     }
-    
-    public Language getById(int id){
+
+    public String delete() {
+        this.getLanguageDAO().delete(language);
+        this.language = null;
+        return "/language/list";
+    }
+
+    public Language getById(int id) {
         return this.getLanguageDAO().getById(id);
     }
 

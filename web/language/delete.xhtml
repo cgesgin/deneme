@@ -7,11 +7,13 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="content">    
         <h:form>
-            <div class="mb-3" style="margin-top: 20px">
-                <label class="form-label">Language</label><br/>
-                <h:inputText styleClass="form-control" value="#{languageBean.language.name}"/><br/>
+            <div class="mb-2" style="margin-top: 20px">
+                <p class="fs-1"><strong>id: </strong>#{languageBean.language.languageId}<br/></p>
+                <p class="fs-1"><strong>name: </strong>#{languageBean.language.name}<br/></p>
+               <p class="fs-1"> <strong>last update: </strong>#{languageBean.language.lastUpdate}<br/></p>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <h:commandButton  styleClass="btn btn-outline-info" action="#{languageBean.update()}" value="Update"/>
+                    <h:commandButton  styleClass="btn btn-outline-dark" action="/language/list" value="Cancel"/>
+                    <h:commandButton  styleClass="btn btn-outline-danger" action="#{languageBean.delete()}" value="DELETE"/>
                 </div>
             </div>
         </h:form>

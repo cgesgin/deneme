@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
 
@@ -20,10 +21,18 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <h:commandLink styleClass="nav-link" action="/actor/list" value="Actor"/><br/>
-                                 <h:commandLink styleClass="nav-link" action="/film/list" value="Film"/><br/>
-                                <h:commandLink styleClass="nav-link" action="/category/list" value="Category"/><br/>
-                                <h:commandLink styleClass="nav-link" action="/language/list" value="Language"/><br/>
+                                <h:commandLink styleClass="nav-link" action="/actor/list" value="Actor">
+                                   
+                                </h:commandLink><br/>
+                                <h:commandLink styleClass="nav-link" action="/film/list" value="Film">
+                                    
+                                </h:commandLink><br/>
+                                <h:commandLink styleClass="nav-link" action="/category/list" value="Category">
+                               
+                                </h:commandLink><br/>
+                                <h:commandLink styleClass="nav-link" action="/language/list" value="Language">
+                                   
+                                </h:commandLink><br/>
                             </div>
                         </div>
                     </div>

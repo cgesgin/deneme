@@ -7,7 +7,7 @@
                 template="/template/admin.xhtml">
 
     <ui:define name="content">
-        <h:form>
+        <h:form id="language-form">
             <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px;margin-bottom: 20px">
                 <h:commandButton styleClass="btn btn-outline-success" action="/language/create" value="Create new Language"/>
             </div>
@@ -18,11 +18,12 @@
                 <h:column><f:facet name="header">ADMINISTRATION</f:facet>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <h:commandButton styleClass="btn btn-outline-success" action="#{languageBean.updateFrom(c)}" value="update"/>
-                        <h:commandButton styleClass="btn btn-outline-danger"  action="#{languageBean.delete(c)}" value="delete"/>
+                        <h:commandButton   styleClass="btn btn-outline-danger"  action="#{languageBean.deleteFrom(c)}" value="delete"/>
                     </div>
                 </h:column>
             </h:dataTable> 
         </h:form>
+        
     </ui:define>
 </ui:composition>
 

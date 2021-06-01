@@ -3,14 +3,15 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="/template/admin.xhtml">
+                template="/template/admin.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="content">    
         <h:form>
             <div class="mb-3" style="margin-top: 20px">
                 <label class="form-label">Language</label><br/>
                 <h:inputText styleClass="form-control" value="#{languageBean.language.name}"/><br/>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <h:commandButton  styleClass="btn btn-outline-info" action="#{languageBean.update()}" value="Update" />       
+                    <h:commandButton  styleClass="btn btn-outline-info" action="#{languageBean.update()}" value="Update"/>
                 </div>
             </div>
         </h:form>

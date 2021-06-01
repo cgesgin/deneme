@@ -38,8 +38,15 @@ public class CategoryBean implements Serializable {
         return "/category/list";
     }
 
-    public void delete(Category category) {
+    public String deleteFrom(Category category) {
+        this.category=category;
+        return "/category/delete";
+    }
+
+    public String delete() {
         this.getCategoryDAO().delete(category);
+        this.category=null;
+        return "/category/list";
     }
 
     public CategoryDAO getCategoryDAO() {

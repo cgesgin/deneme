@@ -43,21 +43,28 @@ public class ActorBean implements Serializable {
         return "/actor/list";
     }
 
-    public void delete(Actor actor) {
+    public String deleteFrom(Actor actor) {
+        this.actor = actor;
+        return "/actor/delete";
+    }
+
+    public String delete() {
         this.getActorDAO().delete(actor);
+        this.actor = null;
+        return "/actor/list";
     }
 
     public void nextPage() {
         if (this.page == this.getPageCount()) {
-            this.page=1;
+            this.page = 1;
         } else {
             this.page++;
         }
     }
 
     public void previusPage() {
-        if (this.page==1) {
-            this.page=this.getPageCount();
+        if (this.page == 1) {
+            this.page = this.getPageCount();
         } else {
             this.page--;
         }

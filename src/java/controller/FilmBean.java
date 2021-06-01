@@ -42,9 +42,16 @@ public class FilmBean implements Serializable {
         this.film = null;
         return "/film/list";
     }
+    
+     public String deleteFrom(Film film) {
+        this.film=film;
+        return "/film/delete";
+    }
 
-    public void delete(Film film) {
+    public String delete() {
         this.getFilmDAO().delete(film);
+        this.film=null;
+        return "/film/list";
     }
 
     public void nextPage() {
