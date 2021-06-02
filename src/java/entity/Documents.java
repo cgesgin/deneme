@@ -3,9 +3,18 @@ package entity;
  
 public class Documents {
 
+    private int id;
     private String filePath;
     private String fileName;
     private String fileType;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFilePath() {
         return filePath;

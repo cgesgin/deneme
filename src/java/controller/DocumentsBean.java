@@ -30,6 +30,13 @@ public class DocumentsBean implements Serializable{
             InputStream input=doc.getInputStream();
             File f=new File(uploadTo+doc.getSubmittedFileName());
             Files.copy(input,f.toPath());
+            
+            documents = this.getDocuments();
+            documents.setFilePath(f.getParent());
+            documents.setFileName(f.getName());
+            documents.setFileType(doc.getContentType());
+            
+            this.getDocumentsDAO().insert(documents);
         } catch (Exception e) {
             System.out.println(""+e.getMessage());
         }

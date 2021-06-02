@@ -13,6 +13,30 @@
                 <h:inputFile value="#{documentsBean.doc}" styleClass="custom-file"/><br/>
             </div>
             <h:commandButton action="#{documentsBean.upload}" value="upload" styleClass="btn btn-primary"/><br/>
+            <hr/>
+            <h:dataTable  styleClass="table table-dark table-hover" value="#{documentsBean.list}" var="d">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>#{d.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">name</f:facet>#{d.fileName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">path</f:facet>#{d.filePath}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">type</f:facet>#{d.fileType}
+                </h:column>
+                <h:column>
+                      <f:facet name="header">Application</f:facet>
+                    <h:panelGroup layout="block" rendered="#{d.fileType.contains('image')}">
+                        <h:graphicImage width="100" height="100" value="/file/#{d.fileName}"/>
+                    </h:panelGroup>
+                    <h:panelGroup layout="block" rendered="#{d.fileType.contains('application')}">
+                        <a href="/JSF_CRUD/faces/file/#{d.fileName}">#{d.fileName}</a>
+                    </h:panelGroup>
+                </h:column>
+            </h:dataTable>
         </h:form>
     </ui:define>
 </ui:composition>
