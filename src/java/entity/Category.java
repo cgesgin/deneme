@@ -44,8 +44,8 @@ public class Category {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.categoryId;
+        int hash = 3;
+        hash = 53 * hash + this.categoryId;
         return hash;
     }
 
@@ -66,6 +66,7 @@ public class Category {
         }
         return true;
     }
-    
+
+  
     
 }

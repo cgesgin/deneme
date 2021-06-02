@@ -4,6 +4,7 @@ import entity.Category;
 import entity.Film;
 import entity.Language;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +14,16 @@ public class FilmDAO extends DBConnecter {
 
     private LanguageDAO languageDAO;
     private CategoryDAO categoryDAO;
+    private List<Integer> categoryList;
 
     public void create(Film film) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("insert into film (title,description,release_year,language_id,length) values ('" + film.getTitle() + "','" + film.getDescription() + "', " + film.getReleaseYear() + "," + film.getLanguage().getLanguageId() + "," + film.getLength() + " )");
+            st.executeUpdate("insert into film (title,description,release_year,language_id,length) values ('" + film.getTitle() + "','" + film.getDescription() + "', " + film.getReleaseYear() + "," + film.getLanguage().getLanguageId() + "," + film.getLength() + " );");
+            for (Integer catList : this.getCategoryList()) {
+                Statement st2 = this.connect().createStatement();
+                st2.executeUpdate("insert into film_category (film_id,category_id) values ( " + this.lastInsertId() + " ," + catList + ")");
+            }
         } catch (Exception ex) {
             System.out.println("create" + ex.getMessage());;
         }
@@ -58,6 +64,15 @@ public class FilmDAO extends DBConnecter {
         try {
             Statement st = this.connect().createStatement();
             st.executeUpdate("update film set title='" + film.getTitle() + "',description='" + film.getDescription() + "' ,release_year=" + film.getReleaseYear() + ",length=" + film.getLength() + " ,language_id=" + film.getLanguage().getLanguageId() + "  where film_id=" + film.getFilmId());
+
+            Statement st2 = this.connect().createStatement();
+            st.executeUpdate("delete from film_category where film_id=" + film.getFilmId());
+
+            for (Category catList : film.getCategoryList()) {
+                Statement st3 = this.connect().createStatement();
+                st2.executeUpdate("insert into film_category (film_id,category_id) values ( " + film.getFilmId() + " ," + catList.getCategoryId() + ")");
+            }
+
         } catch (Exception ex) {
             System.out.println("" + ex.getMessage());;
         }
@@ -66,7 +81,11 @@ public class FilmDAO extends DBConnecter {
     public void delete(Film film) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("delete from film where film_id=" + film.getFilmId());
+            st.executeUpdate("delete from film_category where film_id=" + film.getFilmId());
+            
+            Statement st2 = this.connect().createStatement();
+            st2.executeUpdate("delete from film where film_id=" + film.getFilmId());
+            
         } catch (Exception ex) {
             System.out.println("" + ex.getMessage());;
         }
@@ -89,8 +108,33 @@ public class FilmDAO extends DBConnecter {
         }
         return categoryDAO;
     }
+
     public void setCategoryDAO(CategoryDAO categoryDAO) {
         this.categoryDAO = categoryDAO;
     }
-    
+
+    public void setCategoryList(List<Integer> categoryList) {
+        this.categoryList = categoryList;
+    }
+
+    public List<Integer> getCategoryList() {
+        return categoryList;
+    }
+
+    public int lastInsertId() {
+        Statement st = null;
+        int filmId = 0;
+        try {
+            st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select max(film_id) as c from film");
+            rs.next();
+            filmId = rs.getInt("c");
+        } catch (SQLException ex) {
+            System.out.println("" + ex.getMessage());
+        }
+        return filmId;
+    }
+
+
+
 }

@@ -70,5 +70,4 @@ public class CategoryBean implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
-
 }

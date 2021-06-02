@@ -21,6 +21,12 @@
                 <h:selectOneMenu styleClass="form-select" value="#{filmBean.film.language}" converter="lanConverter" >
                     <f:selectItems  value="#{languageBean.read}" var="l" itemLabel="#{l.name}" itemValue="#{l}"/>
                 </h:selectOneMenu>
+                <label class="form-label">Film Categories</label><br/>
+                <h:selectManyCheckbox styleClass="form-check"  value="#{filmBean.film.categoryList}">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        <f:selectItems  value="#{categoryBean.read}" var="l" itemLabel="#{l.name}" itemValue="#{l}"/>
+                    </label>
+                </h:selectManyCheckbox>
                 <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px">
                     <h:commandButton styleClass="btn btn-outline-info" action="#{filmBean.update()}" value="Update" />
                 </div>

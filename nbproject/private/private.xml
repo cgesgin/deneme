@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/src/java/entity/Documents.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/web/film/delete.xhtml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/web/film/list.xhtml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/web/film/update.xhtml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/src/java/dao/FilmDAO.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/src/java/controller/FilmBean.java</file>
         </group>
     </open-files>
 </project-private>

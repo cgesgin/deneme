@@ -12,7 +12,7 @@ public class Film {
     private Language language;
     private int length;
     private Date lastUpdate;
-    
+
     private List<Category> categoryList;
 
     public Film() {
@@ -91,4 +91,30 @@ public class Film {
     public void setCategoryList(List<Category> categoryList) {
         this.categoryList = categoryList;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + this.filmId;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Film other = (Film) obj;
+        if (this.filmId != other.filmId) {
+            return false;
+        }
+        return true;
+    }
+
 }

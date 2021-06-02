@@ -16,6 +16,7 @@ public class FilmBean implements Serializable {
     private int page;
     private int pageSize;
     private int pageCount;
+    private List<Integer> categoryList;
 
     public FilmBean() {
         this.page = 1;
@@ -42,29 +43,29 @@ public class FilmBean implements Serializable {
         this.film = null;
         return "/film/list";
     }
-    
-     public String deleteFrom(Film film) {
-        this.film=film;
+
+    public String deleteFrom(Film film) {
+        this.film = film;
         return "/film/delete";
     }
 
     public String delete() {
         this.getFilmDAO().delete(film);
-        this.film=null;
+        this.film = null;
         return "/film/list";
     }
 
     public void nextPage() {
         if (this.page == this.getPageCount()) {
-            this.page=1;
+            this.page = 1;
         } else {
             this.page++;
         }
     }
 
     public void previusPage() {
-        if (this.page==1) {
-            this.page=this.getPageCount();
+        if (this.page == 1) {
+            this.page = this.getPageCount();
         } else {
             this.page--;
         }
@@ -116,4 +117,12 @@ public class FilmBean implements Serializable {
         this.pageCount = pageCount;
     }
 
+    public void setCategoryList(List<Integer> categoryList) {
+        this.getFilmDAO().setCategoryList(categoryList);
+        this.categoryList = categoryList;
+    }
+
+    public List<Integer> getCategoryList() {
+        return categoryList;
+    }
 }
