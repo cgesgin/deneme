@@ -6,5 +6,5 @@
 ### Geliştirme ortamı ve Araçlar
 * IDE Netbeans 8.2
 * Java 8
-* Java ee api 6
+* Java ee api 7
 * Glassfish server 5
