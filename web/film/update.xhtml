@@ -17,7 +17,7 @@
                 <h:inputText styleClass="form-control" value="#{filmBean.film.length}"/><br/>
                 <label class="form-label">Film Release Year</label><br/>
                 <h:inputText styleClass="form-control" value="#{filmBean.film.releaseYear}"/><br/>
-                <label class="form-label">Film Language id</label><br/>
+                <label class="form-label">Film Language</label><br/>
                 <h:selectOneMenu styleClass="form-select" value="#{filmBean.film.language}" converter="lanConverter" >
                     <f:selectItems  value="#{languageBean.read}" var="l" itemLabel="#{l.name}" itemValue="#{l}"/>
                 </h:selectOneMenu>

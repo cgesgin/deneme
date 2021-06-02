@@ -1,5 +1,6 @@
 package dao;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import entity.Category;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -51,4 +52,21 @@ public class CategoryDAO extends DBConnecter {
         }
     }
 
+    public List<Category> findCategories(int film_id) {
+
+        List<Category> list = new ArrayList<>();
+        try {
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select c.category_id, c.name ,c.last_update from film f \n"
+                    + " inner join film_category fc on f.film_id=fc.film_id\n"
+                    + " inner join category c on c.category_id=fc.category_id where f.film_id=" + film_id);
+            while (rs.next()) {
+                Category category = new Category(rs.getInt("category_id"), rs.getString("name"), rs.getDate("last_update"));
+                list.add(category);                
+            }
+        } catch (Exception e) {
+            System.out.println(""+e.getMessage());
+        }
+        return list;
+    }
 }

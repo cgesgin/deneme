@@ -1,5 +1,6 @@
 package dao;
 
+import entity.Category;
 import entity.Film;
 import entity.Language;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import util.DBConnecter;
 public class FilmDAO extends DBConnecter {
 
     private LanguageDAO languageDAO;
+    private CategoryDAO categoryDAO;
 
     public void create(Film film) {
         try {
@@ -28,8 +30,9 @@ public class FilmDAO extends DBConnecter {
             Statement st = this.connect().createStatement();
             ResultSet rs = st.executeQuery("select * from film order by film_id asc limit " + pageSize + " offset " + start);
             while (rs.next()) {
-                Language language=this.getLanguageDAO().getById(rs.getInt("language_id"));
+                Language language = this.getLanguageDAO().getById(rs.getInt("language_id"));
                 Film film = new Film(rs.getInt("film_id"), rs.getString("title"), rs.getString("description"), rs.getInt("release_year"), language, rs.getInt("length"), rs.getDate("last_update"));
+                film.setCategoryList(this.getCategoryDAO().findCategories(rs.getInt("film_id")));
                 list.add(film);
             }
         } catch (Exception ex) {
@@ -80,4 +83,14 @@ public class FilmDAO extends DBConnecter {
         this.languageDAO = languageDAO;
     }
 
+    public CategoryDAO getCategoryDAO() {
+        if (this.categoryDAO == null) {
+            this.categoryDAO = new CategoryDAO();
+        }
+        return categoryDAO;
+    }
+    public void setCategoryDAO(CategoryDAO categoryDAO) {
+        this.categoryDAO = categoryDAO;
+    }
+    
 }

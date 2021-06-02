@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Film {
 
@@ -11,6 +12,8 @@ public class Film {
     private Language language;
     private int length;
     private Date lastUpdate;
+    
+    private List<Category> categoryList;
 
     public Film() {
     }
@@ -81,4 +84,11 @@ public class Film {
         this.lastUpdate = lastUpdate;
     }
 
+    public List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
+    }
 }
