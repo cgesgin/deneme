@@ -8,10 +8,10 @@
     <ui:define name="content">    
         <h:form>
             <div class="mb-3" style="margin-top: 20px">
-                <label class="form-label">Language</label><br/>
+                <label class="form-label">#{msgs.language}</label><br/>
                 <h:inputText styleClass="form-control" value="#{languageBean.language.name}"/><br/>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <h:commandButton  styleClass="btn btn-outline-info" action="#{languageBean.update()}" value="Update"/>
+                    <h:commandButton  styleClass="btn btn-outline-info" action="#{languageBean.update()}" value="#{msgs.update}"/>
                 </div>
             </div>
         </h:form>

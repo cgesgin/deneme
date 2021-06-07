@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js"    name="bootstrap.js"/>
     </h:head>
@@ -22,20 +22,24 @@
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                                 <h:commandLink styleClass="nav-link" action="/actor/list" value="Actor">
-                                   
+
                                 </h:commandLink><br/>
                                 <h:commandLink styleClass="nav-link" action="/film/list" value="Film">
-                                    
+
                                 </h:commandLink><br/>
                                 <h:commandLink styleClass="nav-link" action="/category/list" value="Category">
-                               
+
                                 </h:commandLink><br/>
                                 <h:commandLink styleClass="nav-link" action="/language/list" value="Language">
-                                   
+
                                 </h:commandLink><br/>
                                 <h:commandLink styleClass="nav-link" action="/documents/documents" value="documents">
-                                   
+
                                 </h:commandLink><br/>
+                                <div style="margin-left: 740px;background-color: yellowgreen">
+                                    <h:commandLink styleClass="m-5" action="#{languageConvertBean.changeLanguage('en')}" value="EN"/><br/>
+                                    <h:commandLink styleClass="m-5" action="#{languageConvertBean.changeLanguage('tr')}" value="TR"/>
+                                </div>
                             </div>
                         </div>
                     </div>

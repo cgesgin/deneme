@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/web/film/delete.xhtml</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/web/film/list.xhtml</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/web/film/update.xhtml</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/src/java/dao/FilmDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/JSF_CRUD/src/java/controller/FilmBean.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

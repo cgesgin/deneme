@@ -9,21 +9,20 @@
     <ui:define name="content">
         <h:form id="language-form">
             <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px;margin-bottom: 20px">
-                <h:commandButton styleClass="btn btn-outline-success" action="/language/create" value="Create new Language"/>
+                <h:commandButton styleClass="btn btn-outline-success" action="/language/create" value="#{msgs.create}"/>
             </div>
             <h:dataTable styleClass="table table-dark table-hover" value="#{languageBean.read}" var="c">
-                <h:column><f:facet name="header">ID</f:facet>#{c.languageId}</h:column>
-                <h:column><f:facet name="header">NAME</f:facet>#{c.name}</h:column>
-                <h:column><f:facet name="header">LAST UPDATE</f:facet>#{c.lastUpdate}</h:column>
-                <h:column><f:facet name="header">ADMINISTRATION</f:facet>
+                <h:column><f:facet name="header">#{msgs.id} </f:facet>#{c.languageId}</h:column>
+                <h:column><f:facet name="header">#{msgs.name}</f:facet>#{c.name}</h:column>
+                <h:column><f:facet name="header">#{msgs.lastUpdate}</f:facet>#{c.lastUpdate}</h:column>
+                <h:column><f:facet name="header">#{msgs.administration}</f:facet>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <h:commandButton styleClass="btn btn-outline-success" action="#{languageBean.updateFrom(c)}" value="update"/>
-                        <h:commandButton   styleClass="btn btn-outline-danger"  action="#{languageBean.deleteFrom(c)}" value="delete"/>
+                        <h:commandButton styleClass="btn btn-outline-success" action="#{languageBean.updateFrom(c)}" value="#{msgs.update}"/>
+                        <h:commandButton   styleClass="btn btn-outline-danger"  action="#{languageBean.deleteFrom(c)}" value="#{msgs.delete}"/>
                     </div>
                 </h:column>
             </h:dataTable> 
-        </h:form>
-        
+        </h:form>        
     </ui:define>
 </ui:composition>
 

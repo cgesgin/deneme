@@ -7,12 +7,12 @@
     <ui:define name="content">
         <h:form>
             <div class="mb-3" style="margin-top: 20px">
-                <label class="form-label">Actor fist name</label><br/>
+                <label class="form-label">#{msgs.name}</label><br/>
                 <h:inputText styleClass="form-control"  value="#{actorBean.actor.firstName}"/><br/>
-                <label class="form-label">Actor last name</label><br/>
+                <label class="form-label">#{msgs.lastName}</label><br/>
                 <h:inputText styleClass="form-control"  value="#{actorBean.actor.lastName}"/><br/>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <h:commandButton styleClass="btn btn-outline-success" action="#{actorBean.update()}" value="Update" />
+                    <h:commandButton styleClass="btn btn-outline-success" action="#{actorBean.update()}" value="#{msgs.update}" />
                 </div>
             </div>
         </h:form>
